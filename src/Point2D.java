@@ -23,9 +23,13 @@ public class Point2D implements Shape {
         this.y = y;
     }
 
+    public Point2D getCenter() {
+        return this;
+    }
+
     @Override
     public String toString() {
-        return "Point2D{" + x + ";" + y + "}";
+        return " Point2D{" + String.format("%.4f",x) + ";" + String.format("%.4f",y) + "} ";
     }
 
     @Override
@@ -55,12 +59,16 @@ public class Point2D implements Shape {
     }
 
     @Override
-    public void rotate(double alpha, Point2D p2) {
+    public void rotate(double alpha) {
+        rotate_with_center(alpha, getCenter());
+    }
+
+    public void rotate_with_center(double alpha, Point2D center) {
         double x = this.x;
         double y = this.y;
         alpha = Math.toRadians(alpha);
-        this.x = p2.x + (x - p2.x) * Math.cos(alpha) - (y - p2.y) * Math.sin(alpha);
-        this.y = p2.y + (x - p2.x) * Math.sin(alpha) + (y - p2.y) * Math.cos(alpha);
+        this.x = center.x + (x - center.x) * Math.cos(alpha) - (y - center.y) * Math.sin(alpha);
+        this.y = center.y + (x - center.x) * Math.sin(alpha) + (y - center.y) * Math.cos(alpha);
     }
 
     @Override
@@ -69,14 +77,7 @@ public class Point2D implements Shape {
         this.y *= ratio;
     }
 
-    @Override
-    public Point2D getCenter() {
-        return this;
-    }
-
     public Point2D doiXung() {
         return new Point2D(-this.x, -this.y);
     }
-
-
 }

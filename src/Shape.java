@@ -6,9 +6,6 @@ public interface Shape {
 
 
     public void move(double dx, double dy, double dz);
-    public void rotate(double alpha, Point2D center);
+    public void rotate(double alpha);
     public void zoom(double ratio);
-
-    public Point2D getCenter();
-
 }

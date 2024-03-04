@@ -20,9 +20,14 @@ public class Circle implements Shape {
         Center = center;
     }
 
+
+    public Point2D getCenter() {
+        return this.Center;
+    }
+
     @Override
     public String toString() {
-        return "Circle{ (" + Center + ") , R = " + R +'}';
+        return "Circle[ [" + Center + "] ,[ R = " + R +"] ]";
     }
 
     @Override
@@ -51,16 +56,11 @@ public class Circle implements Shape {
     }
 
     @Override
-    public void rotate(double alpha, Point2D center) {
-    }
+    public void rotate(double alpha) {}
 
     @Override
     public void zoom(double ratio) {
         this.R *= ratio;
     }
 
-    @Override
-    public Point2D getCenter() {
-        return this.Center;
-    }
 }

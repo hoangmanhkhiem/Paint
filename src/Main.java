@@ -4,39 +4,35 @@ public class Main {
     public static void main(String[] args) {
         List<Shape> shapes = new ArrayList<>();
         Random rand = new Random();
-        for (int i = 0; i < 10; i++) {
-            int type = rand.nextInt(5);
-            double randX = rand.nextDouble();
-            double randY = rand.nextDouble();
-            switch (type) {
-                case 0:
-                    shapes.add(new Point2D(randX, randY));
-                    break;
-                case 1:
-                    shapes.add(new Circle(rand.nextDouble(), new Point2D(rand.nextDouble(), rand.nextDouble())));
-                    break;
-                case 2:
-                    shapes.add(new Line(new Point2D(rand.nextDouble(), rand.nextDouble()),
-                            new Point2D(rand.nextDouble(), rand.nextDouble())));
-                    break;
-                case 3:
-                    shapes.add(new Triangle(new Point2D(rand.nextDouble(), rand.nextDouble()),
-                            new Point2D(rand.nextDouble(), rand.nextDouble()),
-                            new Point2D(rand.nextDouble(), rand.nextDouble())));
-                    break;
-                case 4:
-                    shapes.add(new Rectangle(new Point2D(rand.nextDouble(), rand.nextDouble()),
-                            new Point2D(rand.nextDouble(), rand.nextDouble()),
-                            new Point2D(rand.nextDouble(), rand.nextDouble()),
-                            new Point2D(rand.nextDouble(), rand.nextDouble())));
-                    break;
-            }
-        }
-//        shapes.add(new Point2D(1, 2));
-//        shapes.add(new Circle(3, new Point2D(1, 2)));
-//        shapes.add(new Line(new Point2D(2, 2), new Point2D(4, 4)));
-//        shapes.add(new Triangle(new Point2D(1, 2), new Point2D(3, 4), new Point2D(5, 6)));
-//        shapes.add(new Rectangle(new Point2D(1, 2), new Point2D(3, 4), new Point2D(5, 6), new Point2D(7, 8)));
+//        for (int i = 0; i < 10; i++) {
+//            int type = rand.nextInt(5);
+//            switch (type) {
+//                case 0:
+//                    shapes.add(new Point2D(rand.nextDouble(), rand.nextDouble()));
+//                    break;
+//                case 1:
+//                    shapes.add(new Circle(rand.nextDouble(), new Point2D(rand.nextDouble(), rand.nextDouble())));
+//                    break;
+//                case 2:
+//                    shapes.add(new Line(new Point2D(rand.nextDouble(), rand.nextDouble()),
+//                            new Point2D(rand.nextDouble(), rand.nextDouble())));
+//                    break;
+//                case 3:
+//                    shapes.add(new Triangle(new Point2D(rand.nextDouble(), rand.nextDouble()),
+//                            new Point2D(rand.nextDouble(), rand.nextDouble()),
+//                            new Point2D(rand.nextDouble(), rand.nextDouble())));
+//                    break;
+//                case 4:
+//                    shapes.add(new Rectangle(new Point2D(rand.nextDouble(), rand.nextDouble()),
+//                                new Point2D(rand.nextDouble(), rand.nextDouble())));
+//                    break;
+//            }
+//        }
+        shapes.add(new Point2D(1, 2));
+        shapes.add(new Circle(3, new Point2D(1, 2)));
+        shapes.add(new Line(new Point2D(2, 2), new Point2D(4, 4)));
+        shapes.add(new Triangle(new Point2D(10, 20), new Point2D(300, 400), new Point2D(50, 60)));
+        shapes.add(new Rectangle(new Point2D(10, 20), new Point2D(40, 60)));
         System.out.println("\n\nDanh sach cac hinh:");
         for (Shape shape : shapes) {
             System.out.println(shape.toString());
@@ -66,25 +62,29 @@ public class Main {
         for(Shape shape : shapes){
             if(!(shape instanceof Point2D)){
                 System.out.println("Before: " + shape.toString());
+                System.out.println("Before: " + shape.area());
+                double area = shape.area();
                 shape.zoom(2);
                 System.out.println("After: " + shape.toString());
+                System.out.println("After: " + shape.area());
+                System.out.println(shape.area()/area);
             }
         }
 
-        System.out.println("\n\nDi chuyen 1 don vi:");
-        for(Shape shape : shapes){
-                System.out.println("Before: " + shape.toString());
-                shape.move(1,1,1);
-                System.out.println("After: " + shape.toString());
-        }
+//        System.out.println("\n\nDi chuyen 1 don vi:");
+//        for(Shape shape : shapes){
+//                System.out.println("Before: " + shape.toString());
+//                shape.move(1,1,1);
+//                System.out.println("After: " + shape.toString());
+//        }
 
-        System.out.println("\n\nXoay 90 do:");
-        for(Shape shape : shapes){
-            if(!(shape instanceof Point2D)){
-                System.out.println("Before: " + shape.toString());
-                shape.rotate(90,shape.getCenter());
-                System.out.println("After: " + shape.toString());
-            }
-        }
+//        System.out.println("\n\nXoay 90 do:");
+//        for(Shape shape : shapes){
+//            if(!(shape instanceof Point2D)){
+//                System.out.println("Before: " + shape.toString());
+//                shape.rotate(90);
+//                System.out.println("After: " + shape.toString());
+//            }
+//        }
     }
 }
