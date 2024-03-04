@@ -40,6 +40,7 @@ public class Rectangle implements Shape{
         this.B.move(dx, dy, dz);
         this.C.move(dx, dy, dz);
         this.D.move(dx, dy, dz);
+        this.Center = new Point2D((A.getX() + C.getX()) / 2, (A.getY() + C.getY()) / 2);
     }
 
     @Override

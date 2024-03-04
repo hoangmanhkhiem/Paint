@@ -58,7 +58,7 @@ public class Line implements Shape {
     public void move(double dx, double dy, double dz) {
         this.t.move(dx, dy, dz);
         this.s.move(dx, dy, dz);
-        this.center.move(dx, dy, dz);
+        this.center = new Point2D((t.getX() + s.getX()) / 2, (t.getY() + s.getY()) / 2);
     }
 
     @Override
